@@ -61,6 +61,9 @@ namespace MarsRoverChallenge.Tests
 
         [Theory]
         [InlineData(5, 5, "N", 'M', "5 6 N")] //heading north, move, expected y + 1
+        [InlineData(5, 5, "E", 'M', "6 5 E")] //heading east, move, expected x + 1
+        [InlineData(5, 5, "S", 'M', "5 4 S")] //heading east, move, expected y - 1
+        [InlineData(5, 5, "W", 'M', "4 5 W")] //heading east, move, expected x - 1
         public void Rover_ExecuteCommand_move_changes_position(int x, int y, string heading, Char command, string expected)
         {
             //arrange
