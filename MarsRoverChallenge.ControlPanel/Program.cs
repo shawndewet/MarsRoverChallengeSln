@@ -20,13 +20,16 @@ namespace MarsRoverChallenge.ControlPanel
                     commands.Add(input);
             } while (!string.IsNullOrEmpty(input));
 
-            Console.WriteLine("Sending commands to rovers...");
-            Console.WriteLine();
-
-            var output = Library.Plateau.Process(commands.ToArray());
-            foreach (var item in output)
+            if (commands.Count == 0)
+                Console.WriteLine("No commands have been provided...exiting control panel.");
+            else
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Sending commands to rovers...");
+                Console.WriteLine();
+
+                var output = Library.Plateau.Process(commands.ToArray());
+                foreach (var item in output)
+                    Console.WriteLine(item);
             }
 
             Console.ReadLine();
