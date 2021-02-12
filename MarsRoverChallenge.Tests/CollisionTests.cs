@@ -11,11 +11,14 @@ namespace MarsRoverChallenge.Tests
         public void Rover_ExecuteCommand_ignores_command_that_would_cause_collision_with_another_rover(int x, int y, string heading, string expected)
         {
             //arrange
-            var staticRover = new Library.Rover(5, 5, 2, 2, "N");
+            var otherRovers = new Library.Rover[]{
+                new Library.Rover(5, 5, 2, 2, "N")
+            };
+
             var roverToMove = new Library.Rover(5, 5, x, y, heading);
 
             //act
-            roverToMove.ExecuteCommand('M');
+            roverToMove.ExecuteCommand('M', otherRovers);
 
             //assert
             var actual = roverToMove.ReportPosition();

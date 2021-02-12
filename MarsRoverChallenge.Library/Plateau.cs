@@ -31,7 +31,7 @@ namespace MarsRoverChallenge.Library
                     );
 
                 foreach (var command in roverCommands)
-                    rovers[roverNumber - 1].ExecuteCommand(command);
+                    rovers[roverNumber - 1].ExecuteCommand(command, rovers);
             }
 
             var output = new string[roverCount];

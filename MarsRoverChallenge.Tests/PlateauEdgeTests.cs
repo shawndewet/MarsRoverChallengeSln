@@ -17,7 +17,7 @@ namespace MarsRoverChallenge.Tests
             var rover = new Library.Rover(width, height, x, y, heading);
 
             //act
-            rover.ExecuteCommand(command);
+            rover.ExecuteCommand(command, new Library.Rover[0]);
 
             //assert
             var actual = rover.ReportPosition();

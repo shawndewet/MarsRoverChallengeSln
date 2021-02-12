@@ -22,8 +22,10 @@ namespace MarsRoverChallenge.Library
         public int Y { get; private set; }
         public string Heading { get; private set; }
 
-        public void ExecuteCommand(char command)
+        public void ExecuteCommand(char command, Rover[] otherRovers)
         {
+            var oldX = X;
+            var oldY = Y;
             switch (command)
             {
                 case 'L': //spin left
@@ -83,6 +85,16 @@ namespace MarsRoverChallenge.Library
                                 X--;
                             break;
                     }
+                    if (otherRovers!= null)
+                        foreach (var otherRover in otherRovers)
+                        {
+                            if (otherRover != null && X == otherRover.X && Y == otherRover.Y)
+                            {
+                                X = oldX;
+                                Y = oldY;
+                            }
+                        }
+
                     break;
             }
         }
