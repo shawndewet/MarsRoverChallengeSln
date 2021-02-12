@@ -58,5 +58,20 @@ namespace MarsRoverChallenge.Tests
             var actual = rover.ReportPosition();
             actual.ShouldBe(expected);
         }
+
+        [Theory]
+        [InlineData(5, 5, "N", 'M', "5 6 N")] //heading north, move, expected y + 1
+        public void Rover_ExecuteCommand_move_changes_position(int x, int y, string heading, Char command, string expected)
+        {
+            //arrange
+            var rover = new Library.Rover(x, y, heading);
+
+            //act
+            rover.ExecuteCommand(command);
+
+            //assert
+            var actual = rover.ReportPosition();
+            actual.ShouldBe(expected);
+        }
     }
 }
