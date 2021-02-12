@@ -8,8 +8,8 @@ namespace MarsRoverChallenge.Library
     {
         public static string[] Process(string[] instructions)
         {
-            var plateauWidth = int.Parse(instructions[0].Split(' ')[0]);
-            var plateauHeight = int.Parse(instructions[0].Split(' ')[1]);
+            var plateauWidth = int.Parse(instructions[0].Split(' ')[0]) + 1;
+            var plateauHeight = int.Parse(instructions[0].Split(' ')[1]) + 1;
 
             //subtract 1 to ignore the first instruction (plateau size)
             //divide by two because each rover has two lines of input
