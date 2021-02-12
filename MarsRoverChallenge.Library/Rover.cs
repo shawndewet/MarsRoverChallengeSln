@@ -59,9 +59,22 @@ namespace MarsRoverChallenge.Library
                     break;
 
                 case 'M': //move
-                    throw new NotImplementedException();
-                    //break;
-
+                    switch (Heading)
+                    {
+                        case "N":
+                            Y++;
+                            break;
+                        case "E":
+                            X++;
+                            break;
+                        case "S":
+                            Y--;
+                            break;
+                        case "W":
+                            X--;
+                            break;
+                    }
+                    break;
             }
         }
 
