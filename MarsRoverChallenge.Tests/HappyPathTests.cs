@@ -38,7 +38,8 @@ namespace MarsRoverChallenge.Tests
         }
 
         [Theory]
-        [InlineData(5, 5, "N", 'L', "5 5 W")] //heading north, turn left, expected heading West
+        [InlineData(5, 5, "N", 'L', "5 5 W")] //heading north, spin left, expected heading West
+        [InlineData(5, 5, "N", 'R', "5 5 E")] //heading north, spin right, expected heading East
         public void Rover_ExecuteCommand_spin_faces_new_direction(int x, int y, string heading, Char command, string expected)
         {
             //arrange
