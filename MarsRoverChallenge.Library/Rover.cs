@@ -17,12 +17,12 @@ namespace MarsRoverChallenge.Library
         public int Y { get; private set; }
         public string Heading { get; private set; }
 
-        internal void ExecuteCommand(char command)
+        public void ExecuteCommand(char command)
         {
             throw new NotImplementedException();
         }
 
-        internal string ReportPosition()
+        public string ReportPosition()
         {
             return $"{X} {Y} {Heading}";
         }
