@@ -2,9 +2,9 @@
 
 namespace MarsRoverChallenge.Library
 {
-    public class Plateau
+    public static class Plateau
     {
-        public string[] Process(string[] instructions)
+        public static string[] Process(string[] instructions)
         {
             throw new NotImplementedException();
         }

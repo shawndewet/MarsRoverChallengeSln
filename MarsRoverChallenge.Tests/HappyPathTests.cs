@@ -30,8 +30,7 @@ namespace MarsRoverChallenge.Tests
             };
 
             //act
-            var plateau = new Library.Plateau();
-            string[] actual = plateau.Process(input);
+            string[] actual = Library.Plateau.Process(input);
 
             //assert
             actual.ShouldBe(expected);
