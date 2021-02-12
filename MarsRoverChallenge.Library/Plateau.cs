@@ -8,6 +8,9 @@ namespace MarsRoverChallenge.Library
     {
         public static string[] Process(string[] instructions)
         {
+            var plateauWidth = int.Parse(instructions[0].Split(' ')[0]);
+            var plateauHeight = int.Parse(instructions[0].Split(' ')[1]);
+
             //subtract 1 to ignore the first instruction (plateau size)
             //divide by two because each rover has two lines of input
             var roverCount = (instructions.Length - 1) / 2;
@@ -21,6 +24,7 @@ namespace MarsRoverChallenge.Library
                 var roverCommands = instructions[roverNumber == 1 ? roverNumber + 1 : roverNumber + 2];
 
                 rovers[roverNumber - 1] = new Rover(
+                    plateauWidth, plateauHeight,
                     int.Parse(roverLocation.Split(' ')[0]),
                     int.Parse(roverLocation.Split(' ')[1]),
                     roverLocation.Split(' ')[2]

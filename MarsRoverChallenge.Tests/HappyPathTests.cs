@@ -49,7 +49,7 @@ namespace MarsRoverChallenge.Tests
         public void Rover_ExecuteCommand_spin_faces_new_direction(int x, int y, string heading, Char command, string expected)
         {
             //arrange
-            var rover = new Library.Rover(x, y, heading);
+            var rover = new Library.Rover(10, 10, x, y, heading);
 
             //act
             rover.ExecuteCommand(command);
@@ -67,7 +67,7 @@ namespace MarsRoverChallenge.Tests
         public void Rover_ExecuteCommand_move_changes_position(int x, int y, string heading, Char command, string expected)
         {
             //arrange
-            var rover = new Library.Rover(x, y, heading);
+            var rover = new Library.Rover(10, 10, x, y, heading);
 
             //act
             rover.ExecuteCommand(command);
