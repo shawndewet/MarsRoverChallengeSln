@@ -23,10 +23,16 @@ namespace MarsRoverChallenge.Library
                 var roverLocation = instructions[roverNumber == 1 ? roverNumber : roverNumber + 1];
                 var roverCommands = instructions[roverNumber == 1 ? roverNumber + 1 : roverNumber + 2];
 
+                var roverX = int.Parse(roverLocation.Split(' ')[0]);
+                var roverY = int.Parse(roverLocation.Split(' ')[1]);
+
+                if (roverX > plateauWidth || roverY > plateauHeight || roverX < 0 || roverY < 0)
+                    continue; //ignore rover initialized off-plateau
+
                 rovers[roverNumber - 1] = new Rover(
                     plateauWidth, plateauHeight,
-                    int.Parse(roverLocation.Split(' ')[0]),
-                    int.Parse(roverLocation.Split(' ')[1]),
+                    roverX,
+                    roverY,
                     roverLocation.Split(' ')[2]
                     );
 
