@@ -6,8 +6,13 @@ namespace MarsRoverChallenge.Library
 {
     public class Rover
     {
-        public Rover(int x, int y, string heading)
+        private readonly int maxX;
+        private readonly int maxY;
+
+        public Rover(int plateauWidth, int plateauHeight, int x, int y, string heading)
         {
+            maxX = plateauWidth - 1;
+            maxY = plateauHeight - 1;
             X = x;
             Y = y;
             Heading = heading;
@@ -62,16 +67,20 @@ namespace MarsRoverChallenge.Library
                     switch (Heading)
                     {
                         case "N":
-                            Y++;
+                            if (Y < maxY)
+                                Y++;
                             break;
                         case "E":
-                            X++;
+                            if (X < maxX)
+                                X++;
                             break;
                         case "S":
-                            Y--;
+                            if (Y > 0)
+                                Y--;
                             break;
                         case "W":
-                            X--;
+                            if (X > 0)
+                                X--;
                             break;
                     }
                     break;
