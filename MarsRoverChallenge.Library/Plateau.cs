@@ -31,7 +31,7 @@ namespace MarsRoverChallenge.Library
                     );
 
                 foreach (var command in roverCommands)
-                    rovers[roverNumber - 1].ExecuteCommand(command, rovers);
+                    rovers[roverNumber - 1].ExecuteCommand(command, Splice(rovers, roverNumber - 1));
             }
 
             var output = new string[roverCount];
@@ -39,6 +39,19 @@ namespace MarsRoverChallenge.Library
                 output[roverNumber - 1] = rovers[roverNumber - 1].ReportPosition();
 
             return output;
+        }
+
+        private static Rover[] Splice(Rover[] existingArray, int indexToRemove)
+        {
+            var newArray = new Rover[existingArray.Length - 1];
+            if (indexToRemove == 0)
+                existingArray[(indexToRemove + 1)..].CopyTo(newArray, 0);
+            else
+            {
+                existingArray[0..(indexToRemove - 1)].CopyTo(newArray, 0);
+                existingArray[(indexToRemove + 1)..].CopyTo(newArray, 0);
+            }
+            return newArray;
         }
     }
 }
