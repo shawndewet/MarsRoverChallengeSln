@@ -13,12 +13,12 @@ namespace MarsRoverChallenge.Library
             var roverCount = (instructions.Length - 1) / 2;
 
             //stores a list of rovers that appear in the instructions
-            var rovers = new Rover[roverCount - 1];
+            var rovers = new Rover[roverCount];
 
             for (int roverNumber = 1; roverNumber <= roverCount; roverNumber++)
             {
-                var roverLocation = instructions[roverNumber];
-                var roverCommands = instructions[roverNumber + 1];
+                var roverLocation = instructions[roverNumber == 1 ? roverNumber : roverNumber + 1];
+                var roverCommands = instructions[roverNumber == 1 ? roverNumber + 1 : roverNumber + 2];
 
                 rovers[roverNumber - 1] = new Rover(
                     int.Parse(roverLocation.Split(' ')[0]),
