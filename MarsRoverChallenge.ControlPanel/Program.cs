@@ -9,7 +9,7 @@ namespace MarsRoverChallenge.ControlPanel
         {
             var commands = new List<string>();
             Console.WriteLine("Welcome to the Mars Rover control panel!");
-            Console.WriteLine("Enter your sequence of commands to control the rovers.");
+            Console.WriteLine("Enter (or paste) your sequence of commands to control the rovers.");
             Console.WriteLine("(Signify the end of your input by entering an empty row)");
 
             string input;
